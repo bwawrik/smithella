@@ -15,5 +15,14 @@ diamond blastp -d /data/DATABASES/KOBAS/seq_pep/ko -q SCADC.faa -o SCADC.faa.dmd
 diamond blastp -d /data/DATABASES/KOBAS/seq_pep/ko -q SDB_ONE.faa -o SDB_ONE.faa.dmd -e 1e-10 -k 1
 ```
 
+#### I then run a perl script to parse the KO numbers into a tab delimited file 
+
+```sh
+perl /opt/local/scripts/get_record_grep.pl /data/static/sequence_data/KoGenes D17.faa.dmd D17.faa.dmd.KEGG_grep
+perl /opt/local/scripts/get_record_grep.pl /data/static/sequence_data/KoGenes F21.faa.dmd F21.faa.dmd.KEGG_grep
+perl /opt/local/scripts/get_record_grep.pl /data/static/sequence_data/KoGenes ME_1.faa.dmd ME_1.faa.dmd.KEGG_grep
+perl /opt/local/scripts/get_record_grep.pl /data/static/sequence_data/KoGenes SCADC.faa.dmd SCADC.faa.dmd.KEGG_grep
+perl /opt/local/scripts/get_record_grep.pl /data/static/sequence_data/KoGenes SDB_ONE.faa.dmd SDB_ONE.faa.dmd.KEGG_grep
+```
 
 
