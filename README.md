@@ -25,4 +25,15 @@ perl /opt/local/scripts/get_record_grep.pl /data/static/sequence_data/KoGenes SC
 perl /opt/local/scripts/get_record_grep.pl /data/static/sequence_data/KoGenes SDB_ONE.faa.dmd SDB_ONE.faa.dmd.KEGG_grep
 ```
 
+#### Make Diamond Databases of all five .faa files
+
+```sh
+diamond makedb --in D17.faa -d D17
+diamond makedb --in F21.faa -d F21
+diamond makedb --in ME_1.faa -d ME_1
+diamond makedb --in SCADC.faa -d SCADC
+diamond makedb --in SDB_ONE.faa -d SDB_ONE
+```
+
+
 
