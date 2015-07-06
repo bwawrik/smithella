@@ -50,4 +50,14 @@ diamond blastp -d ME_1 -q AK01_membrane_complexes.faa -o AK01_MK_in_ME_1.faa.dmd
 diamond blastp -d SCADC -q AK01_membrane_complexes.faa -o AK01_MK_in_SCADC.faa.dmd -e 1e-10 -k 1
 diamond blastp -d SDB_ONE -q AK01_membrane_complexes.faa -o AK01_MK_in_SDB_ONE.faa.dmd -e 1e-10 -k 1
 ```
+- this makes the follwoing results files
+
+```sh
+-rw-rw-r--. 1 bwawrik bwawrik      387 Jul  6 15:35 AK01_MK_in_D17.faa.dmd
+-rw-rw-r--. 1 bwawrik bwawrik      858 Jul  6 15:36 AK01_MK_in_F21.faa.dmd
+-rw-rw-r--. 1 bwawrik bwawrik      711 Jul  6 15:36 AK01_MK_in_ME_1.faa.dmd
+-rw-rw-r--. 1 bwawrik bwawrik     1176 Jul  6 15:36 AK01_MK_in_SCADC.faa.dmd
+-rw-rw-r--. 1 bwawrik bwawrik     1176 Jul  6 15:36 AK01_MK_in_SDB_ONE.faa.dmd
+```
+
 
