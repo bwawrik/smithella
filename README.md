@@ -37,5 +37,17 @@ diamond makedb --in SCADC.faa -d SCADC
 diamond makedb --in SDB_ONE.faa -d SDB_ONE
 ```
 
+#### Search for Membrane Complexes
 
+- I went to the AK-01 genome paper and downloaded the supplement. 
+- I then generated a fasta file of the protein sequences that encode the membrane complex proteins as outlined in supplement S20 (AK01_membrane_complexes.faa)
+- I then use Diamond to search for homologs of these proteins in each of the Smithella genome
+
+```sh
+diamond blastp -d D17 -q AK01_membrane_complexes.faa -o AK01_MK_in_D17.faa.dmd -e 1e-10 -k 1
+diamond blastp -d F21 -q AK01_membrane_complexes.faa -o AK01_MK_in_F21.faa.dmd -e 1e-10 -k 1
+diamond blastp -d ME_1 -q AK01_membrane_complexes.faa -o AK01_MK_in_ME_1.faa.dmd -e 1e-10 -k 1
+diamond blastp -d SCADC -q AK01_membrane_complexes.faa -o AK01_MK_in_SCADC.faa.dmd -e 1e-10 -k 1
+diamond blastp -d SDB_ONE -q AK01_membrane_complexes.faa -o AK01_MK_in_SDB_ONE.faa.dmd -e 1e-10 -k 1
+```
 
