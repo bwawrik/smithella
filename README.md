@@ -100,6 +100,20 @@ col_2 IN
 (SELECT DISTINCT col_2 FROM SCADC)
 ```
 
+- I then added the results of these two searches as tables. This is needed to find the entries that are absent from the comparison wiht F21
+
+```sh
+SELECT DISTINCT col_1
+FROM SDB_VS_SCADCD17ME1
+WHERE col_1 NOT IN 
+(SELECT DISTINCT col_1 FROM SDB_VS_SCADCD17ME1F21)
+```
+
+- This produces two files, which conttain the identifiers to the genes which
+-  are shared between SDB and SCADC, ME1, D17, and F21 (SDB_VS_SCADCD17ME1F21.txt)
+-  are shared between SDB and SCADC, ME1, and D17 but not in F21 (SDB_VS_SCADCD17ME1_not_F21.txt)
+-  
+
 
 
 
