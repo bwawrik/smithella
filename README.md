@@ -60,4 +60,16 @@ diamond blastp -d SDB_ONE -q AK01_membrane_complexes.faa -o AK01_MK_in_SDB_ONE.f
 -rw-rw-r--. 1 bwawrik bwawrik     1176 Jul  6 15:36 AK01_MK_in_SDB_ONE.faa.dmd
 ```
 
+#### Lets find the genes that are shared among all the Smithella's
+
+- The Smithella SDB assembly has the largest number of predicted Proteins.  
+- Run a blastP of all Smithella SDB proteins against the other four genomes
+- The put all hits in a spread sheet and find the ones that are in all five; four out of five; in all but F21 (no assA)
+
+```sh
+diamond blastp -d SDB_ONE -q D17.faa -o D17_vs_SDB.faa.dmd -e 1e-10 -k 1
+diamond blastp -d SDB_ONE -q ME_1.faa -o ME_1_vs_SDB.faa.dmd -e 1e-10 -k 1
+diamond blastp -d SDB_ONE -q SCADC.faa -o SCADC_vs_SDB.faa.dmd -e 1e-10 -k 1
+diamond blastp -d SDB_ONE -q F21.faa -o F21_vs_SDB.faa.dmd -e 1e-10 -k 1
+```
 
