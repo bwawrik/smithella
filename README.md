@@ -113,5 +113,9 @@ WHERE col_1 NOT IN
 - are shared between SDB and SCADC, ME1, and D17 but not in F21 (SDB_VS_SCADCD17ME1_not_F21.txt)
 
 
+- Now lets extract the AA sequences that correspond to these hits
 
-
+```sh
+read_fasta -i SDB_ONE.faa | grab -E SDB_VS_SCADCD17ME1F21.txt | write_fasta -o SDB_VS_SCADCD17ME1F21.faa
+read_fasta -i SDB_ONE.faa | grab -E SDB_VS_SCADCD17ME1_not_F21.txt | write_fasta -o SDB_VS_SCADCD17ME1_not_F21.faa
+```
