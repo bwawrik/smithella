@@ -72,4 +72,34 @@ diamond blastp -d SDB_ONE -q ME_1.faa -o ME_1_vs_SDB.faa.dmd -e 1e-10 -k 1
 diamond blastp -d SDB_ONE -q SCADC.faa -o SCADC_vs_SDB.faa.dmd -e 1e-10 -k 1
 diamond blastp -d SDB_ONE -q F21.faa -o F21_vs_SDB.faa.dmd -e 1e-10 -k 1
 ```
+- I then added all of these table into an SQLite Database using the Firefox addon
+- the query to find the identifiers of SDB_ONE ORFS that have a homolg in all other smithellas is:
+
+```sh
+SELECT DISTINCT col_2
+FROM D17
+WHERE col_2 IN 
+(SELECT DISTINCT col_2 FROM F21)
+AND
+col_2 IN 
+(SELECT DISTINCT col_2 FROM ME1)
+AND
+col_2 IN 
+(SELECT DISTINCT col_2 FROM SCADC)
+```
+
+- If I exclude F21, which does not have an ASS gene:
+ 
+```sh
+SELECT DISTINCT col_2
+FROM D17
+WHERE col_2 IN 
+(SELECT DISTINCT col_2 FROM ME1)
+AND
+col_2 IN 
+(SELECT DISTINCT col_2 FROM SCADC)
+```
+
+
+
 
