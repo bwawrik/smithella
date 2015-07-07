@@ -119,3 +119,10 @@ WHERE col_1 NOT IN
 read_fasta -i SDB_ONE.faa | grab -E SDB_VS_SCADCD17ME1F21.txt | write_fasta -o SDB_VS_SCADCD17ME1F21.faa
 read_fasta -i SDB_ONE.faa | grab -E SDB_VS_SCADCD17ME1_not_F21.txt | write_fasta -o SDB_VS_SCADCD17ME1_not_F21.faa
 ```
+
+- We now need a basic annotation of these gene, which we will do by using the KOBAS database
+
+```sh
+diamond blastp -d /data/DATABASES/KOBAS/seq_pep/ko -q SDB_VS_SCADCD17ME1F21.faa -o SDB_VS_SCADCD17ME1F21.faa.dmd -e 1e-10 -k 1
+diamond blastp -d /data/DATABASES/KOBAS/seq_pep/ko -q SDB_VS_SCADCD17ME1_not_F21.faa -o SDB_VS_SCADCD17ME1_not_F21.faa.dmd -e 1e-10 -k 1
+```
