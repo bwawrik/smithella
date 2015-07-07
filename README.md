@@ -110,8 +110,8 @@ WHERE col_1 NOT IN
 ```
 
 - This produces two files, which conttain the identifiers to the genes which
--  are shared between SDB and SCADC, ME1, D17, and F21 (SDB_VS_SCADCD17ME1F21.txt)
--  are shared between SDB and SCADC, ME1, and D17 but not in F21 (SDB_VS_SCADCD17ME1_not_F21.txt)
+- are shared between SDB and SCADC, ME1, D17, and F21 (SDB_VS_SCADCD17ME1F21.txt)
+- are shared between SDB and SCADC, ME1, and D17 but not in F21 (SDB_VS_SCADCD17ME1_not_F21.txt)
 -  
 
 
