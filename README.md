@@ -154,5 +154,9 @@ create table F2(hit);
 
 ... ok, never mind this database shit --- just do it with remote blast
 
+- blast results using remote ncbi against swissprot
+ 
+
 ```sh
+
 ```
