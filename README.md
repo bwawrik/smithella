@@ -183,6 +183,14 @@ diamond blastp -d D17 -q 2509601044.faa2 -o 2509601044_vs_D17.faa.dmd -e 1e-10 -
 diamond blastp -d ME_1 -q 2509601044.faa2 -o 2509601044_vs_ME_1.faa.dmd -e 1e-10 -k 1
 diamond blastp -d SCADC -q 2509601044.faa2 -o 2509601044_vs_SCADC.faa.dmd -e 1e-10 -k 1
 diamond blastp -d F21 -q 2509601044.faa2 -o 2509601044_vs_F21.faa.dmd -e 1e-10 -k 1
+
+
+diamond blastp -d SDB_ONE -q AK01.faa -o AK01_vs_SDB.faa.dmd -e 1e-10 -k 1
+diamond blastp -d D17 -q AK01.faa -o AK01_vs_D17.faa.dmd -e 1e-10 -k 1
+diamond blastp -d ME_1 -q AK01.faa -o AK01_vs_ME_1.faa.dmd -e 1e-10 -k 1
+diamond blastp -d SCADC -q AK01.faa -o AK01_vs_SCADC.faa.dmd -e 1e-10 -k 1
+diamond blastp -d F21 -q AK01.faa -o AK01_vs_F21.faa.dmd -e 1e-10 -k 1
+
 ```
 
 
