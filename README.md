@@ -152,11 +152,6 @@ create table F2(hit);
 ```
 - now do your database search
 
-```sh
-SELECT DISTINCT KO,gene FROM KoGenes
-WHERE gene IN 
-(SELECT DISTINCT hit FROM F1)
-```
 ... ok, never mind this database shit --- just do it with remote blast
 
 ```sh
