@@ -126,3 +126,32 @@ read_fasta -i SDB_ONE.faa | grab -E SDB_VS_SCADCD17ME1_not_F21.txt | write_fasta
 diamond blastp -d /data/DATABASES/KOBAS/seq_pep/ko -q SDB_VS_SCADCD17ME1F21.faa -o SDB_VS_SCADCD17ME1F21.faa.dmd -e 1e-10 -k 1
 diamond blastp -d /data/DATABASES/KOBAS/seq_pep/ko -q SDB_VS_SCADCD17ME1_not_F21.faa -o SDB_VS_SCADCD17ME1_not_F21.faa.dmd -e 1e-10 -k 1
 ```
+
+- Extract the columns containing the database hit identifiers
+```sh
+cut -f 2 SDB_VS_SCADCD17ME1_not_F21.faa.dmd > N1.txt
+cut -f 2 SDB_VS_SCADCD17ME1F21.faa.dmd > N2.txt
+```
+
+- make a databasee to analyze the results in (needs KoGenes.txt file; too large to upload to github)
+
+```sh
+sqlite3 KO.sqlite
+```
+
+- Import the KOgenes table
+
+```sh
+.separator " "
+create table KoGenes (KO, gene);
+.import KoGenes KoGenes
+
+```
+
+
+```sh
+```
+
+
+```sh
+```
