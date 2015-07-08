@@ -193,5 +193,19 @@ diamond blastp -d F21 -q AK01.faa -o AK01_vs_F21.faa.dmd -e 1e-10 -k 1
 
 ```
 
+#### Assigning annotaitons to unique genes
+
+- First extract the gene identifiers from the remote blast performed above
+
+```sh
+cut -f 2 SDB_VS_SCADCD17ME1F21.faa.blast | sed -e 's/|/\t/g' | cut -f 5 > SDB_VS_SCADCD17ME1F21.faa.blast.ids
+cut -f 2 SDB_VS_SCADCD17ME1_not_F21.faa.blast | sed -e 's/|/\t/g' | cut -f 5 > SDB_VS_SCADCD17ME1_not_F21.faa.blast.ids
+
+grep -f SDB_VS_SCADCD17ME1F21.faa.blast.ids /data/DATABASES/UNIPROT/uniprot_sprot.fasta > SDB_VS_SCADCD17ME1F21.faa.blast.ids.hit
+
+grep -f SDB_VS_SCADCD17ME1_not_F21.faa.blast.ids /data/DATABASES/UNIPROT/uniprot_sprot.fasta > SDB_VS_SCADCD17ME1_not_F21.faa.blast.ids.hit
+
+```
+
 
 
