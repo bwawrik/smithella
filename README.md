@@ -145,13 +145,19 @@ sqlite3 KO.sqlite
 .separator " "
 create table KoGenes (KO, gene);
 .import KoGenes KoGenes
-
+create table F1(hit);
+create table F2(hit);
+.import N1.txt F1;
+.import N2.txt F2;
 ```
-
+- now do your database search
 
 ```sh
+SELECT DISTINCT KO,gene FROM KoGenes
+WHERE gene IN 
+(SELECT DISTINCT hit FROM F1)
 ```
-
+... ok, never mind this database shit --- just do it with remote blast
 
 ```sh
 ```
