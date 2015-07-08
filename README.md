@@ -161,3 +161,22 @@ create table F2(hit);
 blastp -db swissprot -query SDB_VS_SCADCD17ME1_not_F21.faa -remote -outfmt 6 -num_alignments 1 -evalue 1e-10 > SDB_VS_SCADCD17ME1_not_F21.faa.blast
 blastp -db swissprot -query SDB_VS_SCADCD17ME1F21.faa -remote -outfmt 6 -num_alignments 1 -evalue 1e-10 > SDB_VS_SCADCD17ME1F21.faa.blast
 ```
+
+
+- get the protein coding sequences of Syntrophorhabdus aromaticivorans (2509601044.faa) and make a database
+
+```sh
+diamond makedb --in 2509601044.faa -d 2509601044
+```
+- now search proteins in Syntrophorhabdus aromaticivorans against proteins in the Smithella genomes
+
+```sh
+diamond blastp -d 2509601044 -q SDB_ONE.faa -o SDB_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044 -q D17.faa -o D17_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044 -q ME_1.faa -o ME_1_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044 -q SCADC.faa -o SCADC_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044 -q F21.faa -o F21_vs_2509601044.faa.dmd -e 1e-10 -k 1
+```
+
+
+
