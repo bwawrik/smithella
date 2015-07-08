@@ -158,5 +158,5 @@ create table F2(hit);
  
 
 ```sh
-
+lastp -db swissprot -query SDB_VS_SCADCD17ME1_not_F21.faa -remote -outfmt 6 -num_alignments 1 -evalue 1e-10 > SDB_VS_SCADCD17ME1_not_F21.faa.blast
 ```
