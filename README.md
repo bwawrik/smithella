@@ -166,16 +166,23 @@ blastp -db swissprot -query SDB_VS_SCADCD17ME1F21.faa -remote -outfmt 6 -num_ali
 - get the protein coding sequences of Syntrophorhabdus aromaticivorans (2509601044.faa) and make a database
 
 ```sh
-diamond makedb --in 2509601044.faa -d 2509601044
+cat 2509601044.faa | sed 's/ //g/' > 2509601044.faa2
+diamond makedb --in 2509601044.faa2 -d 2509601044_2
 ```
 - now search proteins in Syntrophorhabdus aromaticivorans against proteins in the Smithella genomes
 
 ```sh
-diamond blastp -d 2509601044 -q SDB_ONE.faa -o SDB_vs_2509601044.faa.dmd -e 1e-10 -k 1
-diamond blastp -d 2509601044 -q D17.faa -o D17_vs_2509601044.faa.dmd -e 1e-10 -k 1
-diamond blastp -d 2509601044 -q ME_1.faa -o ME_1_vs_2509601044.faa.dmd -e 1e-10 -k 1
-diamond blastp -d 2509601044 -q SCADC.faa -o SCADC_vs_2509601044.faa.dmd -e 1e-10 -k 1
-diamond blastp -d 2509601044 -q F21.faa -o F21_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044_2 -q SDB_ONE.faa -o SDB_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044_2 -q D17.faa -o D17_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044_2 -q ME_1.faa -o ME_1_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044_2 -q SCADC.faa -o SCADC_vs_2509601044.faa.dmd -e 1e-10 -k 1
+diamond blastp -d 2509601044_2 -q F21.faa -o F21_vs_2509601044.faa.dmd -e 1e-10 -k 1
+
+diamond blastp -d SDB_ONE.faa -q 2509601044_2.faa -o 2509601044_vs_SDB.faa.dmd -e 1e-10 -k 1
+diamond blastp -d D17 -q 2509601044.faa2 -o 2509601044_vs_D17.faa.dmd -e 1e-10 -k 1
+diamond blastp -d ME_1 -q 2509601044.faa2 -o 2509601044_vs_ME_1.faa.dmd -e 1e-10 -k 1
+diamond blastp -d SCADC -q 2509601044.faa2 -o 2509601044_vs_SCADC.faa.dmd -e 1e-10 -k 1
+diamond blastp -d F21 -q 2509601044.faa2 -o 2509601044_vs_F21.faa.dmd -e 1e-10 -k 1
 ```
 
 
