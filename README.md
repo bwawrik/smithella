@@ -133,28 +133,8 @@ cut -f 2 SDB_VS_SCADCD17ME1_not_F21.faa.dmd > N1.txt
 cut -f 2 SDB_VS_SCADCD17ME1F21.faa.dmd > N2.txt
 ```
 
-- make a databasee to analyze the results in (needs KoGenes.txt file; too large to upload to github)
 
-```sh
-sqlite3 KO.sqlite
-```
-
-- Import the KOgenes table
-
-```sh
-.separator " "
-create table KoGenes (KO, gene);
-.import KoGenes KoGenes
-create table F1(hit);
-create table F2(hit);
-.import N1.txt F1;
-.import N2.txt F2;
-```
-- now do your database search
-
-... ok, never mind this database shit --- just do it with remote blast
-
-- blast results using remote ncbi against swissprot
+#### blast results using remote ncbi against swissprot
  
 
 ```sh
@@ -204,6 +184,50 @@ cut -f 2 SDB_VS_SCADCD17ME1_not_F21.faa.blast | sed -e 's/|/\t/g' | cut -f 4 | s
 grep -f SDB_VS_SCADCD17ME1F21.faa.blast.ids /data/DATABASES/UNIPROT/uniprot_sprot.fasta > SDB_VS_SCADCD17ME1F21.faa.blast.ids.hit
 
 grep -f SDB_VS_SCADCD17ME1_not_F21.faa.blast.ids /data/DATABASES/UNIPROT/uniprot_sprot.fasta > SDB_VS_SCADCD17ME1_not_F21.faa.blast.ids.hit
+
+
+perl first_space_to_tab.pl  SDB_VS_SCADCD17ME1F21.faa.blast.ids.hit >  SDB_VS_SCADCD17ME1F21.t
+perl truncate_after_string.pl SDB_VS_SCADCD17ME1F21.t PE= > SDB_VS_SCADCD17ME1F21.t.final
+
+perl first_space_to_tab.pl  SDB_VS_SCADCD17ME1_not_F21.faa.blast.ids.hit >  SDB_VS_SCADCD17ME1_not_F21.t
+perl truncate_after_string.pl SDB_VS_SCADCD17ME1_not_F21.t PE= > SDB_VS_SCADCD17ME1_not_F21.t.final
+```
+### Now make table for ms
+
+
+
+
+
+
+
+-
+
+
+
+
+#### Stuff that didn't work --
+
+- make a databasee to analyze the results in (needs KoGenes.txt file; too large to upload to github)
+
+```sh
+sqlite3 KO.sqlite
+```
+
+- Import the KOgenes table
+
+```sh
+.separator " "
+create table KoGenes (KO, gene);
+.import KoGenes KoGenes
+create table F1(hit);
+create table F2(hit);
+.import N1.txt F1;
+.import N2.txt F2;
+```
+- now do your database search
+
+... ok, never mind this database shit --- just do it with remote blast
+
 
 perl /opt/local/scripts/match_tables.pl SDB_VS_SCADCD17ME1F21.txt SDB_VS_SCADCD17ME1F21.faa.blast SDB_VS_SCADCD17ME1F21.match
 
